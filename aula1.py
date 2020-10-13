@@ -1,3 +1,4 @@
+
 #exercicio 1.1 - retorna o comprimento da lista
 def comprimento(lista):
         if lista == []:
@@ -136,7 +137,3 @@ def menor(lista):
 		return m
 	else:
 		return lista[0]
-
-#Exercicio 3.6
-def max_min(lista):
-	pass
