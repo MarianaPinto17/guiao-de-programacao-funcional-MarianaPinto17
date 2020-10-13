@@ -132,7 +132,7 @@ def menor(lista):
 		return None 		# se a lista for vazia não existe menor
 	m = menor(lista[1:])
 	
-	if m and m<lista[0]:
+	if m is not None and m<lista[0]:
 		return m
 	else:
 		return lista[0]
