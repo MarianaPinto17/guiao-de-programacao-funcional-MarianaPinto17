@@ -74,9 +74,14 @@ def junta_ordenado(lista1, lista2):
 
 	return [lista2[0]] + junta_ordenado(lista1, lista2[1:])
 
-#Exercício 1.10 - Dado um conjunto, em forma de lista, retorna uma lista de lista que representa o conjunto de todos os subconjuntos dados
+#Exercício 1.10 - Dado um conjunto, em forma de lista, retorna uma lista de lista que representa o conjunto de todos os subconjuntos dados 
+# -> retorna todas as possibilidades com as listas passadas na lista de entrada
 def subconjuntos(lista):
-	pass
+	if lista==[]:
+		return []	
+	l = subconjuntos(lista[1:])
+
+	return lista[0] + l
 
 #Exercicio 2.1 - dada uma lista de pares, produzir um par de listas dos 1os e 2os elementos
 def separar(lista):
@@ -92,14 +97,14 @@ def separar(lista):
 #Exercicio 2.2 - Dada uma lista l e um elemento x, retorna um par formado pela lista dos elementos de l
 # diferentes de x e pelo número de ocorrências x em l.
 def remove_e_conta(lista, elem):
-	count = 0
 	if lista == []:
-		return []
-	aux = lista[0]
-	if aux == elem:
-		lista.remove(elem)
-		count = count + 1
-	return remove_e_conta(lista[1:],elem)
+		return [],0
+	l, count = remove_e_conta(lista[0:-1], elem)
+	if lista[-1]==elem:
+		count+=1
+	else: 
+		l.append(lista[-1]) #se não for igual mete na lista nova, porque só queremos os diferentes
+	return l, count
 
 #Exercicio 3.1 _ retorna a cabeça
 def cabeca(lista):
